@@ -1,9 +1,12 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>List of posts</h1>
 
 <ul>
   <% @posts.each do |p| %>
-    <li><%= p.body %></li>
-
+    <li><%= p.body %> <br>
+      <% if user_signed_in? %>
+        Author: <%= p.user_id %>
+        <%= User.find(p.user_id)[:email] %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
