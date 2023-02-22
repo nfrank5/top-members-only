@@ -4,8 +4,7 @@
   <% @posts.each do |p| %>
     <li><%= p.body %> <br>
       <% if user_signed_in? %>
-        Author: <%= p.user_id %>
-        <%= User.find(p.user_id)[:email] %>
+        Author: <%= p.user[:email] %>
       <% end %>
     </li>
   <% end %>
